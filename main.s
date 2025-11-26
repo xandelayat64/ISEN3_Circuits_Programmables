@@ -1,7 +1,7 @@
 PROCESSOR 18F25K40
 #include <xc.inc>
     
-; LED_MATRIX (ou CMD_MATRIX) est connectée au port RA4
+; LED_MATRIX est connectée au port RB5
     
 ; Configuration ================================================================
 config FEXTOSC = OFF
@@ -35,9 +35,9 @@ init:
     banksel ANSELB
     clrf ANSELB     ; PORTB en mode digital
     
-    ; Configuration RB5 (CMD_MATRIX) en sortie
+    ; Configuration RB5 en sortie
     banksel TRISB
-    bcf TRISB, 5, 1         ; RA4 en sortie
+    bcf TRISB, 5, 1         ; RB5 en sortie
     
     ; Éteindre LED_MATRIX au départ
     banksel LATB
