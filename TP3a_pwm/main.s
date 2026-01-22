@@ -24,7 +24,7 @@ goto Low_ISR
 org 0x100   
 
 init: 
-    ; Désactiver le mode analogique sur RB0 (LD0)
+    ; desactiver le mode analogique sur RB0 (LD0)
     banksel ANSELB
     bcf ANSELB,0,1                  ; RB0 en digital
 
@@ -51,9 +51,9 @@ init:
     movlw 49                         ; PR2 = 49 -> 125 Hz
     movwf T2PR,1
 
-    ; Configurer PWM3 module
+    ; conf PWM3 module
     ; PWM3DCH:PWM3DCL = rapport cyclique * 4 bits
-    ; Duty = 20% → 0.20 * 200 = 40 → 40<<2 = 160 (0x00A0)
+    ; duty = 20% => 0.20 * 200 = 40 => 40<<2 = 160 (0x00A0)
     banksel PWM3DCH
     movlw 0x00                       ; MSB
     movwf PWM3DCH,1
